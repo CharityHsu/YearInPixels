@@ -61,7 +61,6 @@ extension ViewController: UICollectionViewDataSource {
         default:
             return 31
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
