@@ -24,8 +24,58 @@ class PopupVC: UIViewController {
 
                     cell.myLabel.backgroundColor = sender.backgroundColor
                 }
-            } else {
+            } else if collectionV == previousVC.febCV {
                 if let cell = previousVC.febCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.marCV {
+                if let cell = previousVC.marCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.aprCV {
+                if let cell = previousVC.aprCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.mayCV {
+                if let cell = previousVC.mayCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.junCV {
+                if let cell = previousVC.junCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.julCV {
+                if let cell = previousVC.julCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.augCV {
+                if let cell = previousVC.augCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.sepCV {
+                if let cell = previousVC.sepCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.octCV {
+                if let cell = previousVC.octCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else if collectionV == previousVC.novCV {
+                if let cell = previousVC.novCV.cellForItem(at: indexP!) as? CollectionViewCell {
+
+                    cell.myLabel.backgroundColor = sender.backgroundColor
+                }
+            } else {
+                if let cell = previousVC.decCV.cellForItem(at: indexP!) as? CollectionViewCell {
 
                     cell.myLabel.backgroundColor = sender.backgroundColor
                 }
@@ -41,18 +91,6 @@ class PopupVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
