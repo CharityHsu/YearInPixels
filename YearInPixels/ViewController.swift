@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+//    var days : [Day] = []
+    
     @IBOutlet weak var janCV: UICollectionView!
     @IBOutlet weak var febCV: UICollectionView!
     @IBOutlet weak var marCV: UICollectionView!
@@ -25,8 +27,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        getDays()
+//    }
+    
+//    func getDays() {
+//        if let context = (UIApplication.shared.delegate
+//                            as? AppDelegate)?.persistentContainer.viewContext {
+//
+//            if let daysCD = try? context.fetch(Day.fetchRequest()) as? [Day] {
+//                    days = daysCD
+//            }
+//        }
+//    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource {
