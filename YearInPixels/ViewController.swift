@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var dayDataArray: [[DayData]] = []
+    var dayDataArray: [[DayData?]] = []
     
     @IBOutlet weak var janCV: UICollectionView!
 
@@ -19,9 +19,9 @@ class ViewController: UIViewController {
         dayDataArray = createDays()
     }
     
-    func createDays() -> [[DayData]] {
+    func createDays() -> [[DayData?]] {
         
-        var arr: [[DayData]] = []
+        var arr: [[DayData?]] = []
         
         for month in 0 ..< months.count {
             var temp: [DayData] = []
@@ -33,17 +33,17 @@ class ViewController: UIViewController {
             arr.append(temp)
         }
         
-        arr[0].insert(contentsOf: [DayData(), DayData()], at: 0)
-        arr[1].insert(contentsOf: [DayData(), DayData(), DayData(), DayData(), DayData(), DayData()], at: 0)
-        arr[2].insert(contentsOf: [DayData(), DayData()], at: 0)
-        arr[3].insert(contentsOf: [DayData(), DayData()], at: 0)
-        arr[4].insert(contentsOf: [DayData(), DayData(), DayData(), DayData()], at: 0)
-        arr[6].insert(contentsOf: [DayData(), DayData()], at: 0)
-        arr[7].insert(contentsOf: [DayData(), DayData(), DayData(), DayData(), DayData()], at: 0)
-        arr[8].insert(contentsOf: [DayData()], at: 0)
-        arr[9].insert(contentsOf: [DayData(), DayData(), DayData()], at: 0)
-        arr[10].insert(contentsOf: [DayData(), DayData(), DayData(), DayData(), DayData(), DayData()], at: 0)
-        arr[11].insert(contentsOf: [DayData()], at: 0)
+        arr[0].insert(contentsOf: [nil, nil], at: 0)
+        arr[1].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
+        arr[2].insert(contentsOf: [nil, nil], at: 0)
+        arr[3].insert(contentsOf: [nil, nil], at: 0)
+        arr[4].insert(contentsOf: [nil, nil, nil, nil], at: 0)
+        arr[6].insert(contentsOf: [nil, nil], at: 0)
+        arr[7].insert(contentsOf: [nil, nil, nil, nil, nil], at: 0)
+        arr[8].insert(contentsOf: [nil], at: 0)
+        arr[9].insert(contentsOf: [nil, nil, nil], at: 0)
+        arr[10].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
+        arr[11].insert(contentsOf: [nil], at: 0)
         return arr
     }
 }
@@ -65,14 +65,14 @@ extension ViewController: UICollectionViewDataSource {
         
         let aDay = dayDataArray[indexPath.section][indexPath.item]
         
-        cell.myLabel.text = String(aDay.dayNum)
-        cell.myLabel.backgroundColor = aDay.moodColor
-        
-        if cell.myLabel.text == "0" {
-            cell.isHidden = true
-        } else {
+        if let myDay = aDay?.dayNum {
+            cell.myLabel.text = String(myDay)
             cell.isHidden = false
+        } else {
+            cell.isHidden = true
         }
+        
+        cell.myLabel.backgroundColor = aDay?.moodColor
         
         return cell
     }
