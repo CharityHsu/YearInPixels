@@ -18,6 +18,7 @@
 		627FCDB824E4543800D34D77 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627FCDB724E4543800D34D77 /* Sender.swift */; };
 		6292366724E1FD9800C3D925 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292366624E1FD9800C3D925 /* PopupVC.swift */; };
 		62B7519824E13D9100FCE281 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B7519724E13D9100FCE281 /* CollectionViewCell.swift */; };
+		62EFB5E124E7287000E9F62A /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */; };
 		62EFBBFC24E617260064ECAD /* DayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EFBBFB24E617260064ECAD /* DayData.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		627FCDB724E4543800D34D77 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		6292366624E1FD9800C3D925 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		62B7519724E13D9100FCE281 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		62EFBBFB24E617260064ECAD /* DayData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +76,7 @@
 				6245BE2424E4AEC300A43529 /* Constants.swift */,
 				62781CAB24E074760033E212 /* ViewController.swift */,
 				6292366624E1FD9800C3D925 /* PopupVC.swift */,
+				62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */,
 				627FCDB724E4543800D34D77 /* Sender.swift */,
 				62B7519724E13D9100FCE281 /* CollectionViewCell.swift */,
 				62EFBBFB24E617260064ECAD /* DayData.swift */,
@@ -163,6 +166,7 @@
 				62781CA824E074760033E212 /* AppDelegate.swift in Sources */,
 				6292366724E1FD9800C3D925 /* PopupVC.swift in Sources */,
 				62781CB224E074760033E212 /* YearInPixels.xcdatamodeld in Sources */,
+				62EFB5E124E7287000E9F62A /* SectionHeaderView.swift in Sources */,
 				62781CAA24E074760033E212 /* SceneDelegate.swift in Sources */,
 				6245BE2524E4AEC300A43529 /* Constants.swift in Sources */,
 			);

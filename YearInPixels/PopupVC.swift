@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import CoreData
 
 class PopupVC: UIViewController {
     
     var previousVC = ViewController()
-    var senderInfo : Sender?
+    var IP: IndexPath?
     
     
     @IBOutlet weak var horrible: UIButton!
@@ -22,32 +21,12 @@ class PopupVC: UIViewController {
     @IBOutlet weak var great: UIButton!
     
     
-    
-    
     @IBAction func touchColor(_ sender: UIButton) {
         
-        if let segueSender = senderInfo {
-            let collectionV = segueSender.CV
-            let indexP = segueSender.IP
-            
-            if let cell = collectionV?.cellForItem(at: indexP!) as? CollectionViewCell {
-                
-//                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//                  return
-//                }
-//
-//                let context = appDelegate.persistentContainer.viewContext
-//
-//                let day = Day(context: context)
-//
-//                day.moodColor = "blue"
-//
-//                appDelegate.saveContext()
-                
-                cell.myLabel.backgroundColor = sender.backgroundColor
-            }
-        }
-
+        let cell = previousVC.janCV.cellForItem(at: IP!) as! CollectionViewCell
+        cell.myLabel.backgroundColor = sender.backgroundColor
+        cell.moodColor = sender.backgroundColor!
+        
         self.dismiss(animated: true, completion: nil)
         
     }
