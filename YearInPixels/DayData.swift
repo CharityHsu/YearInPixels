@@ -6,10 +6,9 @@
 //  Copyright © 2020 Charity Hsu. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-struct DayData {
+class DayData {
     var moodColor : UIColor = .lightGray
-    var journalEntry : String?
+    var journalEntry : String? = nil
 }

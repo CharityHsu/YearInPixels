@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-//    var days : [Day] = []
+//    var days: [DayData] = []
     
     @IBOutlet weak var janCV: UICollectionView!
     @IBOutlet weak var febCV: UICollectionView!
@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // days = []
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
