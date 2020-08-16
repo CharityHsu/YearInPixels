@@ -23,9 +23,9 @@ class ViewController: UIViewController {
         
         var arr: [[DayData?]] = []
         
-        for month in 0 ..< months.count {
+        for month in 0 ..< 12 {
             var temp: [DayData] = []
-            for day in 1 ... months[month].count {
+            for day in 1 ... numDaysInMonth[month] {
                 let newDay = DayData()
                 newDay.dayNum = day
                 temp.append(newDay)
@@ -51,12 +51,11 @@ class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return months.count
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        return months[section].count
+        return numDaysInMonth[section]
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
