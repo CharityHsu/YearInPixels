@@ -15,7 +15,6 @@
 		62781CB224E074760033E212 /* YearInPixels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62781CB024E074760033E212 /* YearInPixels.xcdatamodeld */; };
 		62781CB424E0747B0033E212 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62781CB324E0747B0033E212 /* Assets.xcassets */; };
 		62781CB724E0747B0033E212 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62781CB524E0747B0033E212 /* LaunchScreen.storyboard */; };
-		627FCDB824E4543800D34D77 /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627FCDB724E4543800D34D77 /* Sender.swift */; };
 		6292366724E1FD9800C3D925 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292366624E1FD9800C3D925 /* PopupVC.swift */; };
 		62B7519824E13D9100FCE281 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B7519724E13D9100FCE281 /* CollectionViewCell.swift */; };
 		62EFB5E124E7287000E9F62A /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */; };
@@ -33,7 +32,6 @@
 		62781CB324E0747B0033E212 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62781CB624E0747B0033E212 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62781CB824E0747B0033E212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		627FCDB724E4543800D34D77 /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		6292366624E1FD9800C3D925 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		62B7519724E13D9100FCE281 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				62781CAB24E074760033E212 /* ViewController.swift */,
 				6292366624E1FD9800C3D925 /* PopupVC.swift */,
 				62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */,
-				627FCDB724E4543800D34D77 /* Sender.swift */,
 				62B7519724E13D9100FCE281 /* CollectionViewCell.swift */,
 				62EFBBFB24E617260064ECAD /* DayData.swift */,
 				62781CB324E0747B0033E212 /* Assets.xcassets */,
@@ -160,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				62B7519824E13D9100FCE281 /* CollectionViewCell.swift in Sources */,
-				627FCDB824E4543800D34D77 /* Sender.swift in Sources */,
 				62781CAC24E074760033E212 /* ViewController.swift in Sources */,
 				62EFBBFC24E617260064ECAD /* DayData.swift in Sources */,
 				62781CA824E074760033E212 /* AppDelegate.swift in Sources */,

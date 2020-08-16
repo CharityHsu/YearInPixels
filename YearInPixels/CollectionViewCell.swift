@@ -11,6 +11,5 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var myLabel: UILabel!
-    var moodColor: UIColor = .lightGray
     
 }

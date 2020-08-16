@@ -9,6 +9,7 @@
 import UIKit
 
 class DayData {
+    var dayNum : Int = 0
     var moodColor : UIColor = .lightGray
     var journalEntry : String? = nil
 }
