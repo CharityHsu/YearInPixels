@@ -23,9 +23,12 @@ class PopupVC: UIViewController {
     
     @IBAction func touchColor(_ sender: UIButton) {
         
-        let aDay = previousVC.dayDataArray[IP!.section][IP!.item]
+        if let cell = previousVC.janCV?.cellForItem(at: IP!) as? CollectionViewCell {
+            cell.myLabel.backgroundColor = sender.backgroundColor
+        }
+        
+        let aDay = dayDataArray[IP!.section][IP!.item]
         aDay?.moodColor = sender.backgroundColor!
-        previousVC.janCV.reloadData()
         self.dismiss(animated: true, completion: nil)
         
     }

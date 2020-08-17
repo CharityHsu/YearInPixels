@@ -8,8 +8,22 @@
 
 import UIKit
 
-class DayData {
+class DayData: NSObject, NSCoding {
+    
     var dayNum : Int = 0
     var moodColor : UIColor = .lightGray
     var journalEntry : String? = nil
+    
+    init(color: UIColor) {
+        moodColor = color
+    }
+
+    func encode(with coder: NSCoder) {
+        coder.encode(moodColor, forKey: "moodColor")
+    }
+
+    required init(coder: NSCoder) {
+        moodColor = coder.decodeObject(forKey: "moodColor") as! UIColor
+        super.init()
+    }
 }

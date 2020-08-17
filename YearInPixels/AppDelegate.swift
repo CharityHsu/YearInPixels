@@ -12,7 +12,16 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    let itemStore = ItemStore()
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        let success = itemStore.saveChanges()
+        if (success) {
+            print("Saved all of the Items")
+        } else {
+            print("Couldn't save any Items")
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

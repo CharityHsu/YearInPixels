@@ -8,9 +8,9 @@
 
 import UIKit
 
+ var dayDataArray: [[DayData?]] = []
+
 class ViewController: UIViewController {
-    
-    var dayDataArray: [[DayData?]] = []
     
     @IBOutlet weak var janCV: UICollectionView!
 
@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         for month in 0 ..< 12 {
             var temp: [DayData] = []
             for day in 1 ... numDaysInMonth[month] {
-                let newDay = DayData()
+                let newDay = DayData(color: .lightGray)
                 newDay.dayNum = day
                 temp.append(newDay)
             }
