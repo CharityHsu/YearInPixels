@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         for month in 0 ..< 12 {
             var temp: [DayData] = []
             for day in 1 ... numDaysInMonth[month] {
-                let newDay = DayData(color: .lightGray)
+                let newDay = DayData()
                 newDay.dayNum = day
                 temp.append(newDay)
             }
@@ -71,7 +71,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.isHidden = true
         }
         
-        cell.myLabel.backgroundColor = aDay?.moodColor
+        cell.myLabel.backgroundColor = getUIColorFromString(stringColor: aDay?.moodColor)
         
         return cell
     }
@@ -108,3 +108,21 @@ extension ViewController: UICollectionViewDelegate {
     
 }
 
+extension ViewController {
+    func getUIColorFromString(stringColor: String?) -> UIColor {
+        switch stringColor {
+        case "horrible":
+            return UIColor.systemRed
+        case "bad":
+            return UIColor.systemOrange
+        case "okay":
+            return UIColor.systemYellow
+        case "good":
+            return UIColor.systemGreen
+        case "great":
+            return UIColor.systemPurple
+        default:
+            return UIColor.lightGray
+        }
+    }
+}

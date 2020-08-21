@@ -28,7 +28,7 @@ class PopupVC: UIViewController {
         }
         
         let aDay = dayDataArray[IP!.section][IP!.item]
-        aDay?.moodColor = sender.backgroundColor!
+        aDay?.moodColor = getStringFromUIColor(color: sender.backgroundColor!.resolvedColor(with: view.traitCollection))
         self.dismiss(animated: true, completion: nil)
         
     }
@@ -43,6 +43,23 @@ class PopupVC: UIViewController {
             button?.layer.borderColor = UIColor.black.cgColor
         }
 
+    }
+    
+    func getStringFromUIColor(color: UIColor) -> String {
+        switch color {
+        case UIColor.systemRed.resolvedColor(with: view.traitCollection):
+            return "horrible"
+        case UIColor.systemOrange.resolvedColor(with: view.traitCollection):
+            return "bad"
+        case UIColor.systemYellow.resolvedColor(with: view.traitCollection):
+            return "okay"
+        case UIColor.systemGreen.resolvedColor(with: view.traitCollection):
+            return "good"
+        case UIColor.systemPurple.resolvedColor(with: view.traitCollection):
+            return "great"
+        default:
+            return "blah"
+        }
     }
 
 }

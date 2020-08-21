@@ -8,22 +8,35 @@
 
 import UIKit
 
-class DayData: NSObject, NSCoding {
+class DayData {
     
     var dayNum : Int = 0
-    var moodColor : UIColor = .lightGray
-    var journalEntry : String? = nil
+    var moodColor : String = ""
     
-    init(color: UIColor) {
-        moodColor = color
-    }
+//    static let documentsDirectory =
+//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//    static let archiveURL = documentsDirectory.appendingPathComponent("days").appendingPathExtension("plist")
+//
+//    static func saveToFile(days: [[DayData?]]) {
+//        let propertyListEncoder = PropertyListEncoder()
+//        let encodedDays = try? propertyListEncoder.encode(days)
+//    }
+//
+//    static func loadFromFile() -> [[DayData?]] {
+//        let propertyListDecoder = PropertyListDecoder()
+//    }
 
-    func encode(with coder: NSCoder) {
-        coder.encode(moodColor, forKey: "moodColor")
-    }
+    
+    // init(color: UIColor) {
+//        moodColor = color
+//    }
 
-    required init(coder: NSCoder) {
-        moodColor = coder.decodeObject(forKey: "moodColor") as! UIColor
-        super.init()
-    }
+//    func encode(with coder: NSCoder) {
+//        coder.encode(moodColor, forKey: "moodColor")
+//    }
+//
+//    required init(coder: NSCoder) {
+//        moodColor = coder.decodeObject(forKey: "moodColor") as! UIColor
+//        super.init()
+//    }
 }
