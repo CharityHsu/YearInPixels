@@ -8,7 +8,9 @@
 
 import UIKit
 
- var dayDataArray: [[DayData?]] = []
+var dayDataArray: [[DayData?]] = []
+var dayArray: [[Int?]] = []
+
 
 class ViewController: UIViewController {
     
@@ -17,6 +19,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dayDataArray = createDays()
+        dayArray = setDayArray()
     }
     
     func createDays() -> [[DayData?]] {
@@ -25,10 +28,35 @@ class ViewController: UIViewController {
         
         for month in 0 ..< 12 {
             var temp: [DayData] = []
-            for day in 1 ... numDaysInMonth[month] {
+            for _ in 1 ... numDaysInMonth[month] {
                 let newDay = DayData()
-                newDay.dayNum = day
+                // newDay.dayNum = day
                 temp.append(newDay)
+            }
+            arr.append(temp)
+        }
+        
+        arr[0].insert(contentsOf: [nil, nil], at: 0)
+        arr[1].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
+        arr[2].insert(contentsOf: [nil, nil], at: 0)
+        arr[3].insert(contentsOf: [nil, nil], at: 0)
+        arr[4].insert(contentsOf: [nil, nil, nil, nil], at: 0)
+        arr[6].insert(contentsOf: [nil, nil], at: 0)
+        arr[7].insert(contentsOf: [nil, nil, nil, nil, nil], at: 0)
+        arr[8].insert(contentsOf: [nil], at: 0)
+        arr[9].insert(contentsOf: [nil, nil, nil], at: 0)
+        arr[10].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
+        arr[11].insert(contentsOf: [nil], at: 0)
+        return arr
+    }
+    
+    func setDayArray() -> [[Int?]] {
+        var arr: [[Int?]] = []
+        
+        for month in 0 ..< 12 {
+            var temp: [Int] = []
+            for day in 1 ... numDaysInMonth[month] {
+                temp.append(day)
             }
             arr.append(temp)
         }
@@ -63,8 +91,9 @@ extension ViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CVCell", for: indexPath) as! CollectionViewCell
         
         let aDay = dayDataArray[indexPath.section][indexPath.item]
+        let aDayInt = dayArray[indexPath.section][indexPath.item]
         
-        if let myDay = aDay?.dayNum {
+        if let myDay = aDayInt {
             cell.myLabel.text = String(myDay)
             cell.isHidden = false
         } else {

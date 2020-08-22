@@ -10,8 +10,8 @@ import UIKit
 
 class DayData {
     
-    var dayNum : Int = 0
-    var moodColor : String = ""
+    // var dayNum: Int = 0
+    var moodColor: String = ""
     
 //    static let documentsDirectory =
 //        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
