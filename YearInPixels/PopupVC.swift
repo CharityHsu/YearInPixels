@@ -11,7 +11,7 @@ import UIKit
 class PopupVC: UIViewController {
     
     var previousVC = ViewController()
-    var IP: IndexPath?
+    var indexPath: IndexPath?
     
     
     @IBOutlet weak var horrible: UIButton!
@@ -23,12 +23,14 @@ class PopupVC: UIViewController {
     
     @IBAction func touchColor(_ sender: UIButton) {
         
-        if let cell = previousVC.janCV?.cellForItem(at: IP!) as? CollectionViewCell {
+        if let cell = previousVC.janCV?.cellForItem(at: indexPath!) as? CollectionViewCell {
             cell.myLabel.backgroundColor = sender.backgroundColor
         }
         
-        let aDay = dayDataArray[IP!.section][IP!.item]
-        aDay?.moodColor = getStringFromUIColor(color: sender.backgroundColor!.resolvedColor(with: view.traitCollection))
+        dayDataArray[indexPath!.section][indexPath!.item].moodColor = getStringFromUIColor(color: sender.backgroundColor!.resolvedColor(with: view.traitCollection))
+        
+        DayData.saveToFile(days: dayDataArray)
+        
         self.dismiss(animated: true, completion: nil)
         
     }

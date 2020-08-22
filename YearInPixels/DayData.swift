@@ -7,36 +7,41 @@
 //
 
 import UIKit
+import Foundation
 
-class DayData {
+class DayData: Codable {
     
-    // var dayNum: Int = 0
-    var moodColor: String = ""
+    var moodColor: String?
     
-//    static let documentsDirectory =
-//        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-//    static let archiveURL = documentsDirectory.appendingPathComponent("days").appendingPathExtension("plist")
-//
-//    static func saveToFile(days: [[DayData?]]) {
-//        let propertyListEncoder = PropertyListEncoder()
-//        let encodedDays = try? propertyListEncoder.encode(days)
-//    }
-//
-//    static func loadFromFile() -> [[DayData?]] {
-//        let propertyListDecoder = PropertyListDecoder()
-//    }
+    static let documentsDirectory =
+        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let archiveURL = documentsDirectory.appendingPathComponent("days").appendingPathExtension("plist")
 
-    
-    // init(color: UIColor) {
-//        moodColor = color
-//    }
+    static func saveToFile(days: [[DayData]]) {
+        do {
+            let propertyListEncoder = PropertyListEncoder()
+            let encodedDays = try propertyListEncoder.encode(days)
+            try encodedDays.write(to: archiveURL,
+            options: .noFileProtection)
+        } catch {
+            print("in catch block")
+            print(error)
+        }
+    }
 
-//    func encode(with coder: NSCoder) {
-//        coder.encode(moodColor, forKey: "moodColor")
-//    }
-//
-//    required init(coder: NSCoder) {
-//        moodColor = coder.decodeObject(forKey: "moodColor") as! UIColor
-//        super.init()
-//    }
+    static func loadFromFile() -> [[DayData]]? {
+        
+        do {
+            let propertyListDecoder = PropertyListDecoder()
+            let retrievedDayData = try Data(contentsOf: archiveURL)
+            let decodedDays = try propertyListDecoder.decode(Array<Array<DayData>>.self, from:
+                  retrievedDayData)
+            return decodedDays
+        } catch {
+            print(error)
+        }
+        return nil
+    }
+
+
 }

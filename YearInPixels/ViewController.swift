@@ -8,7 +8,7 @@
 
 import UIKit
 
-var dayDataArray: [[DayData?]] = []
+var dayDataArray: [[DayData]] = []
 var dayArray: [[Int?]] = []
 
 
@@ -18,35 +18,35 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dayDataArray = createDays()
+        
         dayArray = setDayArray()
+        
+        if let loadedDays = DayData.loadFromFile() {
+            dayDataArray = loadedDays
+        } else {
+            dayDataArray = createDays()
+            print("no files were loaded")
+        }
     }
     
-    func createDays() -> [[DayData?]] {
+    override func viewWillAppear(_ animated: Bool) {
+        janCV.reloadData()
+    }
+    
+    func createDays() -> [[DayData]] {
         
-        var arr: [[DayData?]] = []
+        var arr: [[DayData]] = []
         
         for month in 0 ..< 12 {
             var temp: [DayData] = []
             for _ in 1 ... numDaysInMonth[month] {
                 let newDay = DayData()
-                // newDay.dayNum = day
+                newDay.moodColor = ""
                 temp.append(newDay)
             }
             arr.append(temp)
         }
-        
-        arr[0].insert(contentsOf: [nil, nil], at: 0)
-        arr[1].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
-        arr[2].insert(contentsOf: [nil, nil], at: 0)
-        arr[3].insert(contentsOf: [nil, nil], at: 0)
-        arr[4].insert(contentsOf: [nil, nil, nil, nil], at: 0)
-        arr[6].insert(contentsOf: [nil, nil], at: 0)
-        arr[7].insert(contentsOf: [nil, nil, nil, nil, nil], at: 0)
-        arr[8].insert(contentsOf: [nil], at: 0)
-        arr[9].insert(contentsOf: [nil, nil, nil], at: 0)
-        arr[10].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
-        arr[11].insert(contentsOf: [nil], at: 0)
+
         return arr
     }
     
@@ -100,7 +100,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.isHidden = true
         }
         
-        cell.myLabel.backgroundColor = getUIColorFromString(stringColor: aDay?.moodColor)
+        cell.myLabel.backgroundColor = getUIColorFromString(stringColor: aDay.moodColor)
         
         return cell
     }
@@ -130,7 +130,7 @@ extension ViewController: UICollectionViewDelegate {
             let controller = segue.destination as! PopupVC
             let indexPath = sender as! IndexPath
             controller.previousVC = self
-            controller.IP = indexPath
+            controller.indexPath = indexPath
         }
         
     }
