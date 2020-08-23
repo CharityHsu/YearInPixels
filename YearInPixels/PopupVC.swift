@@ -13,39 +13,70 @@ class PopupVC: UIViewController {
     var previousVC = ViewController()
     var indexPath: IndexPath?
     
+    @IBOutlet var moodButtons: [UIButton]!
+    @IBOutlet weak var okayButton: UIButton!
+    @IBOutlet weak var textView: UITextView!
     
-    @IBOutlet weak var horrible: UIButton!
-    @IBOutlet weak var bad: UIButton!
-    @IBOutlet weak var okay: UIButton!
-    @IBOutlet weak var good: UIButton!
-    @IBOutlet weak var great: UIButton!
-    
+    var currentColor: UIColor = .systemYellow
     
     @IBAction func touchColor(_ sender: UIButton) {
-        
+        moodButtons.forEach({ $0.layer.borderWidth = 1.5 })
+        sender.layer.borderWidth = 5.0
+        currentColor = sender.backgroundColor!
+    }
+    
+    
+    @IBAction func saveButton(_ sender: UIButton) {
         if let cell = previousVC.janCV?.cellForItem(at: indexPath!) as? CollectionViewCell {
-            cell.myLabel.backgroundColor = sender.backgroundColor
+            cell.myLabel.backgroundColor = currentColor
         }
         
-        dayDataArray[indexPath!.section][indexPath!.item].moodColor = getStringFromUIColor(color: sender.backgroundColor!.resolvedColor(with: view.traitCollection))
+        dayDataArray[indexPath!.section][indexPath!.item].moodColor = getStringFromUIColor(color: currentColor.resolvedColor(with: view.traitCollection))
         
+        //if textView.text.count > 0 {
+            dayDataArray[indexPath!.section][indexPath!.item].description = textView.text
+        //}
         DayData.saveToFile(days: dayDataArray)
-        
         self.dismiss(animated: true, completion: nil)
-        
     }
-
+    
+    
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let buttons = [self.horrible, self.bad, self.okay, self.good, self.great]
+        moodButtons.forEach({
+            $0.layer.borderColor = UIColor.black.cgColor
+            $0.layer.borderWidth = 1.5
+        })
         
-        for button in buttons {
-            button?.layer.borderWidth = 3.0
-            button?.layer.borderColor = UIColor.black.cgColor
+        textView.placeholder = "Write something about it (optional)"
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
+        
+        if let moodColor = dayDataArray[indexPath!.section][indexPath!.item].moodColor {
+            moodButtons.forEach({
+                if getStringFromUIColor(color: $0.backgroundColor!.resolvedColor(with: view.traitCollection)) == moodColor {
+                    currentColor = $0.backgroundColor!
+                    $0.layer.borderWidth = 5.0
+                }
+            })
+        } else {
+            okayButton.layer.borderWidth = 5.0
+            okayButton.layer.borderColor = UIColor.black.cgColor
         }
-
+        
+        if let description = dayDataArray[indexPath!.section][indexPath!.item].description,
+            description != ""
+            {
+            textView.placeholder = ""
+            textView.text = description
+        }
     }
+    
+    
     
     func getStringFromUIColor(color: UIColor) -> String {
         switch color {
@@ -65,3 +96,5 @@ class PopupVC: UIViewController {
     }
 
 }
+
+

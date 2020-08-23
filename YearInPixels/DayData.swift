@@ -12,6 +12,7 @@ import Foundation
 class DayData: Codable {
     
     var moodColor: String?
+    var description: String?
     
     static let documentsDirectory =
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!

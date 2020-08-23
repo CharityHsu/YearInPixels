@@ -34,19 +34,17 @@ class ViewController: UIViewController {
     }
     
     func createDays() -> [[DayData]] {
-        
         var arr: [[DayData]] = []
         
         for month in 0 ..< 12 {
             var temp: [DayData] = []
             for _ in 1 ... numDaysInMonth[month] {
                 let newDay = DayData()
-                newDay.moodColor = ""
+                newDay.moodColor = nil
                 temp.append(newDay)
             }
             arr.append(temp)
         }
-
         return arr
     }
     
