@@ -14,7 +14,7 @@ var dayArray: [[Int?]] = []
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var janCV: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        janCV.reloadData()
+        collectionView.reloadData()
     }
     
     func createDays() -> [[DayData]] {
@@ -40,7 +40,6 @@ class ViewController: UIViewController {
             var temp: [DayData] = []
             for _ in 1 ... numDaysInMonth[month] {
                 let newDay = DayData()
-                newDay.moodColor = nil
                 temp.append(newDay)
             }
             arr.append(temp)

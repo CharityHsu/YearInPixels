@@ -11,12 +11,16 @@ import Foundation
 
 class DayData: Codable {
     
+    // private enum CodingKeys: String, CodingKey { case moodColor, description }
+    
     var moodColor: String?
     var description: String?
     
     static let documentsDirectory =
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let archiveURL = documentsDirectory.appendingPathComponent("days").appendingPathExtension("plist")
+    
+    
 
     static func saveToFile(days: [[DayData]]) {
         do {

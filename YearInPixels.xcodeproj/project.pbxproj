@@ -12,9 +12,9 @@
 		62781CAA24E074760033E212 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62781CA924E074760033E212 /* SceneDelegate.swift */; };
 		62781CAC24E074760033E212 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62781CAB24E074760033E212 /* ViewController.swift */; };
 		62781CAF24E074760033E212 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62781CAD24E074760033E212 /* Main.storyboard */; };
-		62781CB224E074760033E212 /* YearInPixels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62781CB024E074760033E212 /* YearInPixels.xcdatamodeld */; };
 		62781CB424E0747B0033E212 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62781CB324E0747B0033E212 /* Assets.xcassets */; };
 		62781CB724E0747B0033E212 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62781CB524E0747B0033E212 /* LaunchScreen.storyboard */; };
+		627B586D24F46D500048F3F3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627B586C24F46D500048F3F3 /* Color.swift */; };
 		6292366724E1FD9800C3D925 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6292366624E1FD9800C3D925 /* PopupVC.swift */; };
 		62A74ADF24F2F67800E184C6 /* TextViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A74ADE24F2F67800E184C6 /* TextViewExtension.swift */; };
 		62B7519824E13D9100FCE281 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B7519724E13D9100FCE281 /* CollectionViewCell.swift */; };
@@ -29,10 +29,10 @@
 		62781CA924E074760033E212 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		62781CAB24E074760033E212 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62781CAE24E074760033E212 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		62781CB124E074760033E212 /* YearInPixels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YearInPixels.xcdatamodel; sourceTree = "<group>"; };
 		62781CB324E0747B0033E212 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62781CB624E0747B0033E212 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62781CB824E0747B0033E212 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		627B586C24F46D500048F3F3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		6292366624E1FD9800C3D925 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		62A74ADE24F2F67800E184C6 /* TextViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewExtension.swift; sourceTree = "<group>"; };
 		62B7519724E13D9100FCE281 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -73,17 +73,17 @@
 				62781CA724E074760033E212 /* AppDelegate.swift */,
 				62781CA924E074760033E212 /* SceneDelegate.swift */,
 				62781CAD24E074760033E212 /* Main.storyboard */,
-				6245BE2424E4AEC300A43529 /* Constants.swift */,
 				62781CAB24E074760033E212 /* ViewController.swift */,
 				6292366624E1FD9800C3D925 /* PopupVC.swift */,
-				62A74ADE24F2F67800E184C6 /* TextViewExtension.swift */,
 				62EFBBFB24E617260064ECAD /* DayData.swift */,
+				627B586C24F46D500048F3F3 /* Color.swift */,
+				6245BE2424E4AEC300A43529 /* Constants.swift */,
+				62A74ADE24F2F67800E184C6 /* TextViewExtension.swift */,
 				62B7519724E13D9100FCE281 /* CollectionViewCell.swift */,
 				62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */,
 				62781CB324E0747B0033E212 /* Assets.xcassets */,
 				62781CB524E0747B0033E212 /* LaunchScreen.storyboard */,
 				62781CB824E0747B0033E212 /* Info.plist */,
-				62781CB024E074760033E212 /* YearInPixels.xcdatamodeld */,
 			);
 			path = YearInPixels;
 			sourceTree = "<group>";
@@ -162,10 +162,10 @@
 				62B7519824E13D9100FCE281 /* CollectionViewCell.swift in Sources */,
 				62781CAC24E074760033E212 /* ViewController.swift in Sources */,
 				62EFBBFC24E617260064ECAD /* DayData.swift in Sources */,
+				627B586D24F46D500048F3F3 /* Color.swift in Sources */,
 				62A74ADF24F2F67800E184C6 /* TextViewExtension.swift in Sources */,
 				62781CA824E074760033E212 /* AppDelegate.swift in Sources */,
 				6292366724E1FD9800C3D925 /* PopupVC.swift in Sources */,
-				62781CB224E074760033E212 /* YearInPixels.xcdatamodeld in Sources */,
 				62EFB5E124E7287000E9F62A /* SectionHeaderView.swift in Sources */,
 				62781CAA24E074760033E212 /* SceneDelegate.swift in Sources */,
 				6245BE2524E4AEC300A43529 /* Constants.swift in Sources */,
@@ -366,19 +366,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		62781CB024E074760033E212 /* YearInPixels.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				62781CB124E074760033E212 /* YearInPixels.xcdatamodel */,
-			);
-			currentVersion = 62781CB124E074760033E212 /* YearInPixels.xcdatamodel */;
-			path = YearInPixels.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 62781C9C24E074760033E212 /* Project object */;
 }
