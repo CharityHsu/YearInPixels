@@ -11,16 +11,33 @@ import Foundation
 
 class DayData: Codable {
     
-    // private enum CodingKeys: String, CodingKey { case moodColor, description }
+    // added enum, changed moodColor to UIColor, added 2 init and 1 encode function
     
-    var moodColor: String?
+    private enum CodingKeys: String, CodingKey { case moodColor, description }
+    
+    var moodColor: UIColor?
     var description: String?
     
     static let documentsDirectory =
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     static let archiveURL = documentsDirectory.appendingPathComponent("days").appendingPathExtension("plist")
     
+    init() {
+        self.moodColor = nil
+        self.description = ""
+    }
     
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        moodColor = try container.decode(Color.self, forKey: .moodColor).uiColor
+        description = try container.decode(String.self, forKey: .description)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(Color(uiColor: moodColor), forKey: .moodColor)
+        try container.encode(description, forKey: .description)
+    }
 
     static func saveToFile(days: [[DayData]]) {
         do {

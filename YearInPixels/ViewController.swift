@@ -97,7 +97,7 @@ extension ViewController: UICollectionViewDataSource {
             cell.isHidden = true
         }
         
-        cell.myLabel.backgroundColor = getUIColorFromString(stringColor: aDay.moodColor)
+        cell.myLabel.backgroundColor = aDay.moodColor
         
         return cell
     }
@@ -134,21 +134,3 @@ extension ViewController: UICollectionViewDelegate {
     
 }
 
-extension ViewController {
-    func getUIColorFromString(stringColor: String?) -> UIColor {
-        switch stringColor {
-        case "horrible":
-            return UIColor.systemRed
-        case "bad":
-            return UIColor.systemOrange
-        case "okay":
-            return UIColor.systemYellow
-        case "good":
-            return UIColor.systemGreen
-        case "great":
-            return UIColor.systemPurple
-        default:
-            return UIColor.lightGray
-        }
-    }
-}

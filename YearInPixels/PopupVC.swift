@@ -18,7 +18,7 @@ class PopupVC: UIViewController {
     @IBOutlet weak var okayButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     
-    var currentColor: UIColor = .systemYellow
+    var currentColor: UIColor = UIColor(hexString: "CAAC7C")
     
     @IBAction func touchColor(_ sender: UIButton) {
         moodButtons.forEach({ $0.layer.borderWidth = 1.5 })
@@ -32,7 +32,7 @@ class PopupVC: UIViewController {
             cell.myLabel.backgroundColor = currentColor
         }
         
-        dayDataArray[indexPath!.section][indexPath!.item].moodColor = getStringFromUIColor(color: currentColor.resolvedColor(with: view.traitCollection))
+        dayDataArray[indexPath!.section][indexPath!.item].moodColor = currentColor
         
         dayDataArray[indexPath!.section][indexPath!.item].description = textView.text
         
@@ -54,10 +54,10 @@ class PopupVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in } ))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
             if let cell = self.previousVC.collectionView?.cellForItem(at: self.indexPath!) as? CollectionViewCell {
-                cell.myLabel.backgroundColor = .lightGray
+                cell.myLabel.backgroundColor = nil
             }
             dayDataArray[self.indexPath!.section][self.indexPath!.item].moodColor = nil
-            dayDataArray[self.indexPath!.section][self.indexPath!.item].description = nil
+            dayDataArray[self.indexPath!.section][self.indexPath!.item].description = ""
             DayData.saveToFile(days: dayDataArray)
             self.dismiss(animated: true, completion: nil)
         }))
@@ -69,6 +69,7 @@ class PopupVC: UIViewController {
         super.viewDidLoad()
         
         configureDateLabel()
+        
         moodButtons.forEach({
             $0.layer.borderColor = UIColor.black.cgColor
             $0.layer.borderWidth = 1.5
@@ -83,19 +84,32 @@ class PopupVC: UIViewController {
         textView.placeholder = "Write something about it (optional)"
         textView.textContainerInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
         
-        if let moodColor = dayDataArray[indexPath!.section][indexPath!.item].moodColor {
-            moodButtons.forEach({
-                if getStringFromUIColor(color: $0.backgroundColor!.resolvedColor(with: view.traitCollection)) == moodColor {
+        applySelectedBorder()
+        
+        adjustTextView()
+    }
+    
+    func applySelectedBorder() {
+        // if moodColor is not "nil"
+        if let moodColor = dayDataArray[indexPath!.section][indexPath!.item].moodColor, moodColor != UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0){
+            
+            moodButtons.forEach( {
+                // if the button color matches moodColor
+                if $0.backgroundColor! == moodColor {
+                    
                     currentColor = $0.backgroundColor!
                     $0.layer.borderWidth = 5.0
                 }
-            })
+                if moodColor == UIColor(hexString: "CAAC7C") {
+                    okayButton.layer.borderWidth = 5.0
+                    okayButton.layer.borderColor = UIColor.black.cgColor
+                }
+            } )
+          // if moodColor is "nil"
         } else {
             okayButton.layer.borderWidth = 5.0
             okayButton.layer.borderColor = UIColor.black.cgColor
         }
-        
-        adjustTextView()
     }
     
     func configureDateLabel() {
@@ -128,24 +142,6 @@ class PopupVC: UIViewController {
 
         let selectedRange = textView.selectedRange
         textView.scrollRangeToVisible(selectedRange)
-    }
-    
-    
-    func getStringFromUIColor(color: UIColor) -> String {
-        switch color {
-        case UIColor.systemRed.resolvedColor(with: view.traitCollection):
-            return "horrible"
-        case UIColor.systemOrange.resolvedColor(with: view.traitCollection):
-            return "bad"
-        case UIColor.systemYellow.resolvedColor(with: view.traitCollection):
-            return "okay"
-        case UIColor.systemGreen.resolvedColor(with: view.traitCollection):
-            return "good"
-        case UIColor.systemPurple.resolvedColor(with: view.traitCollection):
-            return "great"
-        default:
-            return "blah"
-        }
     }
 
 }
