@@ -21,6 +21,8 @@ class PopupVC: UIViewController {
     var currentColor: UIColor = UIColor(hexString: "CAAC7C")
     
     @IBAction func touchColor(_ sender: UIButton) {
+        playSound()
+        
         moodButtons.forEach({ $0.layer.borderWidth = 1.5 })
         sender.layer.borderWidth = 5.0
         currentColor = sender.backgroundColor!
@@ -28,6 +30,8 @@ class PopupVC: UIViewController {
     
     
     @IBAction func saveButton(_ sender: UIButton) {
+        playSound()
+        
         if let cell = previousVC.collectionView?.cellForItem(at: indexPath!) as? CollectionViewCell {
             cell.myLabel.backgroundColor = currentColor
         }
@@ -42,10 +46,13 @@ class PopupVC: UIViewController {
     
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
+        playSound()
+        
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
+        playSound()
         showAlert()
     }
     

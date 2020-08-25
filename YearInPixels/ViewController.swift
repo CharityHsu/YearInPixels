@@ -6,10 +6,35 @@
 //  Copyright © 2020 Charity Hsu. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 
+var player: AVAudioPlayer?
 var dayDataArray: [[DayData]] = []
 var dayArray: [[Int?]] = []
+
+func playSound() {
+    let urlString = Bundle.main.path(forResource: "button_tap", ofType: "mp3")
+    
+    do {
+        try AVAudioSession.sharedInstance().setMode(.default)
+        try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+        
+        guard let urlString = urlString else {
+            return
+        }
+        
+        player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+        
+        guard let player = player else {
+            return
+        }
+        player.play()
+        
+    } catch {
+        print("something went wrong")
+    }
+}
 
 
 class ViewController: UIViewController {
@@ -31,6 +56,12 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let indexPath = IndexPath(item: 0, section: 8)
+        self.collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
     }
     
     func createDays() -> [[DayData]] {
@@ -96,7 +127,7 @@ extension ViewController: UICollectionViewDataSource {
         } else {
             cell.isHidden = true
         }
-        
+
         cell.myLabel.backgroundColor = aDay.moodColor
         
         return cell
@@ -118,6 +149,7 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        playSound()
         performSegue(withIdentifier: "showPopup", sender: indexPath)
     }
     
