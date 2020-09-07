@@ -89,7 +89,7 @@ class PopupVC: UIViewController {
         }
         
         textView.placeholder = "Write something about it (optional)"
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
+        textView.textContainerInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         applySelectedBorder()
         

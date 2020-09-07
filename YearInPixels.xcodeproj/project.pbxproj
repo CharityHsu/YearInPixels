@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6222313D2504D572000A0803 /* ReminderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6222313C2504D572000A0803 /* ReminderVC.swift */; };
 		6245BE2524E4AEC300A43529 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6245BE2424E4AEC300A43529 /* Constants.swift */; };
 		62781CA824E074760033E212 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62781CA724E074760033E212 /* AppDelegate.swift */; };
 		62781CAA24E074760033E212 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62781CA924E074760033E212 /* SceneDelegate.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6222313C2504D572000A0803 /* ReminderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderVC.swift; sourceTree = "<group>"; };
 		6245BE2424E4AEC300A43529 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62781CA424E074760033E212 /* YearInPixels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YearInPixels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62781CA724E074760033E212 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,23 +74,56 @@
 		62781CA624E074760033E212 /* YearInPixels */ = {
 			isa = PBXGroup;
 			children = (
-				62CCF04824F4B11900A4EC7F /* button_tap.mp3 */,
-				62781CA724E074760033E212 /* AppDelegate.swift */,
-				62781CA924E074760033E212 /* SceneDelegate.swift */,
-				62781CAD24E074760033E212 /* Main.storyboard */,
-				62781CAB24E074760033E212 /* ViewController.swift */,
-				6292366624E1FD9800C3D925 /* PopupVC.swift */,
+				62E833D4250431E600698744 /* Resources */,
+				62E833D3250431E000698744 /* Controller */,
+				62E833D2250431DB00698744 /* View */,
+				62E833D1250431D100698744 /* Model */,
+				62781CB824E0747B0033E212 /* Info.plist */,
+			);
+			path = YearInPixels;
+			sourceTree = "<group>";
+		};
+		62E833D1250431D100698744 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				62EFBBFB24E617260064ECAD /* DayData.swift */,
 				627B586C24F46D500048F3F3 /* Color.swift */,
 				6245BE2424E4AEC300A43529 /* Constants.swift */,
 				62A74ADE24F2F67800E184C6 /* TextViewExtension.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		62E833D2250431DB00698744 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				62781CAD24E074760033E212 /* Main.storyboard */,
+				62781CB524E0747B0033E212 /* LaunchScreen.storyboard */,
 				62B7519724E13D9100FCE281 /* CollectionViewCell.swift */,
 				62EFB5E024E7287000E9F62A /* SectionHeaderView.swift */,
 				62781CB324E0747B0033E212 /* Assets.xcassets */,
-				62781CB524E0747B0033E212 /* LaunchScreen.storyboard */,
-				62781CB824E0747B0033E212 /* Info.plist */,
 			);
-			path = YearInPixels;
+			path = View;
+			sourceTree = "<group>";
+		};
+		62E833D3250431E000698744 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				62781CAB24E074760033E212 /* ViewController.swift */,
+				6292366624E1FD9800C3D925 /* PopupVC.swift */,
+				6222313C2504D572000A0803 /* ReminderVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		62E833D4250431E600698744 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62781CA724E074760033E212 /* AppDelegate.swift */,
+				62781CA924E074760033E212 /* SceneDelegate.swift */,
+				62CCF04824F4B11900A4EC7F /* button_tap.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6222313D2504D572000A0803 /* ReminderVC.swift in Sources */,
 				62B7519824E13D9100FCE281 /* CollectionViewCell.swift in Sources */,
 				62781CAC24E074760033E212 /* ViewController.swift in Sources */,
 				62EFBBFC24E617260064ECAD /* DayData.swift in Sources */,

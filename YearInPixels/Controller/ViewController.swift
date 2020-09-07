@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         dayArray = setDayArray()
         
         if let loadedDays = DayData.loadFromFile() {
@@ -58,11 +59,11 @@ class ViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let indexPath = IndexPath(item: 0, section: 8)
-        self.collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
-    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        let indexPath = IndexPath(item: 0, section: 8)
+//        self.collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
+//    }
     
     func createDays() -> [[DayData]] {
         var arr: [[DayData]] = []
@@ -102,9 +103,14 @@ class ViewController: UIViewController {
         arr[11].insert(contentsOf: [nil], at: 0)
         return arr
     }
+    
+    @IBAction func didTapClock(_ sender: UIButton) {
+        playSound()
+    }
+    
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 12
@@ -133,6 +139,7 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
+    // SECTION HEADER
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeaderView", for: indexPath) as! SectionHeaderView
@@ -142,6 +149,22 @@ extension ViewController: UICollectionViewDataSource {
         sectionHeaderView.title = month
         
         return sectionHeaderView
+    }
+    
+    // ALWAYS SHOW 7 CELLS PER ROW
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let noOfCellsInRow = 7
+
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+
+        let totalSpace = flowLayout.sectionInset.left
+            + flowLayout.sectionInset.right
+            + (flowLayout.minimumInteritemSpacing * CGFloat(noOfCellsInRow - 1))
+
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(noOfCellsInRow))
+
+        return CGSize(width: size, height: size)
     }
     
 }
@@ -166,3 +189,11 @@ extension ViewController: UICollectionViewDelegate {
     
 }
 
+//extension ViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let cellSize = collectionView.frame.size.width / 7
+//        return CGSize(width: cellSize, height: cellSize)
+//    }
+//
+//}

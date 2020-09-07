@@ -52,11 +52,11 @@ extension UITextView: UITextViewDelegate {
     private func resizePlaceholder() {
         if let placeholderLabel = self.viewWithTag(100) as! UILabel? {
             let labelX = self.textContainer.lineFragmentPadding
-            let labelY = self.textContainerInset.top - 6
+            let labelY = CGFloat(0.0)
             let labelWidth = self.frame.width - (labelX * 2)
             let labelHeight = placeholderLabel.frame.height
 
-            placeholderLabel.frame = CGRect(x: labelX + 40, y: labelY, width: labelWidth, height: labelHeight)
+            placeholderLabel.frame = CGRect(x: labelX + 20, y: labelY, width: labelWidth, height: labelHeight)
         }
     }
     
