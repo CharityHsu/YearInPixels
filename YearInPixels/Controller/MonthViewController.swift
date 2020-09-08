@@ -16,7 +16,6 @@ class MonthViewController: UIViewController {
     
     @IBOutlet weak var monthCollectionView: UICollectionView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

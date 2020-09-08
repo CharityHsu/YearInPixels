@@ -37,8 +37,6 @@ extension YearViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         let actualNumDaysInMonth = numDaysInMonth[indexPath.item] - numIndentedSpaces[indexPath.item]
         
-        // if 28 <= 29 - 1
-        // if 29 <= 29 - 1
         if indexPath.section <= actualNumDaysInMonth - 1 {
             let indents = numIndentedSpaces[indexPath.item]
             let aDay = dayDataArray[indexPath.item][indexPath.section + indents]

@@ -11,8 +11,6 @@ import Foundation
 
 class DayData: Codable {
     
-    // added enum, changed moodColor to UIColor, added 2 init and 1 encode function
-    
     private enum CodingKeys: String, CodingKey { case moodColor, description }
     
     var moodColor: UIColor?

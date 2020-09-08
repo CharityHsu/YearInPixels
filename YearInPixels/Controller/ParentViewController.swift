@@ -35,9 +35,9 @@ class ParentViewController: UIViewController {
         } else if segue.identifier == "moveToReminder" {
             playSound()
         }
-        
     }
 
+    // MARK: - Actions
     
     @IBAction func didTapSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
