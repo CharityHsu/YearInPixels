@@ -6,44 +6,19 @@
 //  Copyright © 2020 Charity Hsu. All rights reserved.
 //
 
-import AVFoundation
+
 import UIKit
 
-var player: AVAudioPlayer?
 var dayDataArray: [[DayData]] = []
 var dayArray: [[Int?]] = []
 
-func playSound() {
-    let urlString = Bundle.main.path(forResource: "button_tap", ofType: "mp3")
+class MonthViewController: UIViewController {
     
-    do {
-        try AVAudioSession.sharedInstance().setMode(.default)
-        try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-        
-        guard let urlString = urlString else {
-            return
-        }
-        
-        player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
-        
-        guard let player = player else {
-            return
-        }
-        player.play()
-        
-    } catch {
-        print("something went wrong")
-    }
-}
-
-
-class ViewController: UIViewController {
+    @IBOutlet weak var monthCollectionView: UICollectionView!
     
-    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         dayArray = setDayArray()
         
@@ -56,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
+        monthCollectionView.reloadData()
     }
     
 //    override func viewDidLayoutSubviews() {
@@ -91,8 +66,8 @@ class ViewController: UIViewController {
         }
         
         arr[0].insert(contentsOf: [nil, nil], at: 0)
-        arr[1].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
-        arr[2].insert(contentsOf: [nil, nil], at: 0)
+        arr[1].insert(contentsOf: [nil, nil, nil, nil, nil], at: 0)
+        arr[2].insert(contentsOf: [nil, nil, nil, nil, nil, nil], at: 0)
         arr[3].insert(contentsOf: [nil, nil], at: 0)
         arr[4].insert(contentsOf: [nil, nil, nil, nil], at: 0)
         arr[6].insert(contentsOf: [nil, nil], at: 0)
@@ -104,13 +79,9 @@ class ViewController: UIViewController {
         return arr
     }
     
-    @IBAction func didTapClock(_ sender: UIButton) {
-        playSound()
-    }
-    
 }
 
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MonthViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 12
@@ -169,7 +140,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension MonthViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         playSound()
@@ -189,11 +160,3 @@ extension ViewController: UICollectionViewDelegate {
     
 }
 
-//extension ViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let cellSize = collectionView.frame.size.width / 7
-//        return CGSize(width: cellSize, height: cellSize)
-//    }
-//
-//}

@@ -10,7 +10,7 @@ import UIKit
 
 class PopupVC: UIViewController {
     
-    var previousVC = ViewController()
+    var previousVC = MonthViewController()
     var indexPath: IndexPath?
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -32,7 +32,7 @@ class PopupVC: UIViewController {
     @IBAction func saveButton(_ sender: UIButton) {
         playSound()
         
-        if let cell = previousVC.collectionView?.cellForItem(at: indexPath!) as? CollectionViewCell {
+        if let cell = previousVC.monthCollectionView?.cellForItem(at: indexPath!) as? CollectionViewCell {
             cell.myLabel.backgroundColor = currentColor
         }
         
@@ -60,7 +60,7 @@ class PopupVC: UIViewController {
         let alert = UIAlertController(title: "Delete this day's data?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in } ))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
-            if let cell = self.previousVC.collectionView?.cellForItem(at: self.indexPath!) as? CollectionViewCell {
+            if let cell = self.previousVC.monthCollectionView?.cellForItem(at: self.indexPath!) as? CollectionViewCell {
                 cell.myLabel.backgroundColor = nil
             }
             dayDataArray[self.indexPath!.section][self.indexPath!.item].moodColor = nil
@@ -121,7 +121,7 @@ class PopupVC: UIViewController {
     
     func configureDateLabel() {
         
-        if let cell = previousVC.collectionView?.cellForItem(at: indexPath!) as? CollectionViewCell {
+        if let cell = previousVC.monthCollectionView?.cellForItem(at: indexPath!) as? CollectionViewCell {
             let day = cell.myLabel.text
             dateLabel.text = "\(monthNames[indexPath!.section]) \(day!)"
         }
